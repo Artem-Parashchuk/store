@@ -1,0 +1,64 @@
+.home {
+  position: relative;
+  flex-grow: 1;
+  background-color: var( --dark);
+}
+
+.title {
+  font-weight: 900;
+  font-size: 114px;
+  line-height: 145px;
+  text-transform: uppercase;
+  color: var(--bg);
+  text-align: center;
+}
+
+.product {
+  position: relative;
+  padding-left: 42px;
+  display: flex;
+  align-items: stretch;
+  margin-top: 9px;
+}
+
+.subtitle {
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+
+.head {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  text-transform: uppercase;
+  color: var(--light);
+  max-width: 500px;
+  margin: 10px 0 24px 0;
+}
+
+.image {
+  position: relative;
+  flex-grow: 1;
+  height: 250px;
+}
+
+.image img {
+  position: absolute;
+  bottom: -15%;
+  right: 10%;
+  max-width: unset;
+}
+
+.banner {
+  display: flex;
+  width: 100%;
+  height: 570px;
+}
+.button {
+    font-weight: 600;
+    color: var(--white);
+    padding: 9px 20px;
+    background-color: var(--violet);
+    border-radius: 6px;
+}
