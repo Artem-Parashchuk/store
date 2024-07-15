@@ -1,6 +1,13 @@
 .products {
   width: 100%;
   padding: 25px 22px;
+  background-color: var(--dark);
+}
+.main_title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--white);
 }
 
 .list {
@@ -40,6 +47,7 @@
   font-weight: 600;
   font-size: 15px;
   line-height: 18px;
+  color: var(--white);
 }
 
 .cat {

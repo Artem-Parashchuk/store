@@ -8,12 +8,14 @@ import {
 import { Loader } from "../Loader/Loader";
 
 export const Sidebar = () => {
+  
   const categories = useSelector(selectCategories);
   const isLoading = useSelector(selectCatIsLoading);
+
   return (
     <aside className={s.sidebar}>
       <h2 className={s.title}>Category</h2>
-      <nav>
+      <nav className={s.nav}>
         {isLoading ? (
           <Loader />
         ) : (

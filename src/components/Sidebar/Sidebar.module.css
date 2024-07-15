@@ -15,10 +15,35 @@
 }
 
 .menu {
-  margin-top: 32px;
   display: flex;
   flex-direction: column;
   row-gap: 12px;
+}
+.nav {
+  margin-top: 20px;
+  height: 320px;
+  overflow-y: scroll;
+}
+/* Стилізація скролу */
+.nav::-webkit-scrollbar {
+  width: 12px; /* Ширина скролу */
+}
+
+/* Фон скролу */
+.nav::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+/* Ручка скролу */
+.nav::-webkit-scrollbar-thumb {
+  background: var(--violet-dark);
+  border-radius: 6px;
+}
+
+/* Ручка скролу при наведенні */
+.nav::-webkit-scrollbar-thumb:hover {
+  background: var(--violet);
 }
 
 .link {
