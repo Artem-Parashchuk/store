@@ -12,6 +12,11 @@ const initialState = {
 const productsSlice = createSlice({
     name: 'products',
     initialState: initialState,
+    reducers: {
+        filteredByPrice: (state, action) => {
+            state.filtered = state.products.filter(product => product.price < action.payload)
+        }
+    },
     extraReducers: builder => {
         builder
             .addCase(getProductsThunk.pending, state => {
@@ -29,4 +34,5 @@ const productsSlice = createSlice({
             })
     }
 })
+export const { filteredByPrice } = productsSlice.actions
 export default productsSlice.reducer

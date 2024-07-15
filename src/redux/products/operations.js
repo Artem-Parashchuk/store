@@ -1,7 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://api.escuelajs.co/api/v1/'
+import {BASE_URL} from '../constants'
+
+axios.defaults.baseURL = BASE_URL
 
 export const getProductsThunk = createAsyncThunk('products/getProductsThunk', async(_, thunkAPI)=> {
     try{
