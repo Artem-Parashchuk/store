@@ -8,26 +8,27 @@ import { useEffect } from "react";
 import { getCategoriesThunk } from "./redux/categories/operations";
 import { getProductsThunk } from "./redux/products/operations";
 import { Home } from "./components/Home/Home";
+import UserForm from "./components/UserForm/UserForm";
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCategoriesThunk())
-    dispatch(getProductsThunk())
-  }, [dispatch])
+    dispatch(getCategoriesThunk());
+    dispatch(getProductsThunk());
+  }, [dispatch]);
   return (
     <div className={s.app}>
       <Header />
-
+      <UserForm />
       <div className={s.container}>
         <Sidebar />
         {/* <Home/> */}
-        
+
         <Layout />
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

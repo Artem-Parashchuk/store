@@ -136,3 +136,11 @@
   cursor: not-allowed;
   background: var(--bg);
 }
+.goHome{
+  color: var(--white);
+  transition: transform .25s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
