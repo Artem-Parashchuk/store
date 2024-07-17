@@ -3,8 +3,28 @@ import s from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.jpg";
 import sprite from "../../assets/sprite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUsers } from "../../redux/user/selectors";
+import { toggleForm } from "../../redux/user/userSlice";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
+  const dispatch = useDispatch()
+  const [value, setValue] = useState({name: 'Guest'})
+
+  const currentUser = useSelector(selectUsers)
+
+  useEffect(() => {
+    if(!currentUser) return
+
+    setValue(currentUser)
+  }, [currentUser])
+
+  const handleClick = () => {
+    if(!currentUser){
+      dispatch(toggleForm(true))
+    }
+  }
   return (
     <header className={s.header}>
       <div className={s.logo}>
@@ -17,12 +37,12 @@ export const Header = () => {
       </div>
       <div className={s.header_right_side}>
         <div className={s.info}>
-          <div className={s.user}>
+          <div className={s.user} onClick={handleClick}>
             <div
               className={s.avatar}
               style={{ backgroundImage: `url(${avatar})` }}
             ></div>
-            <p className={s.username}>Guest</p>
+            <p className={s.username}>{value.name}</p>
           </div>
         </div>
 

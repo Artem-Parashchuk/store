@@ -84,7 +84,7 @@ export const Product = (item) => {
         <div className={s.bottom}>
           <p className={s.purchase}>19 people purchased</p>
 
-          <Link to="/">Return to store</Link>
+          <Link to="/" className={s.goHome}>Return to store</Link>
         </div>
         </div>
     </section>
