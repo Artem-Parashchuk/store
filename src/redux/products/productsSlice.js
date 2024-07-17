@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getProductsThunk } from "./operations"
+import { shuffle } from "../../helpers/helpers"
 
 const initialState = {
     products: [],
@@ -15,6 +16,11 @@ const productsSlice = createSlice({
     reducers: {
         filteredByPrice: (state, action) => {
             state.filtered = state.products.filter(product => product.price < action.payload)
+        },
+        getRelatedProducts: (state, action) => {
+            const categoryId = action.payload;
+            const relatedProducts = state.products.filter(({ category }) => category.id === categoryId);
+            state.related = shuffle(relatedProducts);
         }
     },
     extraReducers: builder => {
@@ -34,5 +40,5 @@ const productsSlice = createSlice({
             })
     }
 })
-export const { filteredByPrice } = productsSlice.actions
+export const { filteredByPrice, getRelatedProducts } = productsSlice.actions
 export default productsSlice.reducer

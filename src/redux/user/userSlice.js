@@ -1,8 +1,12 @@
 import { createSlice, current } from "@reduxjs/toolkit";
+import { createUserThunk } from "./operations";
 
 const initialState ={
-    currentUser: [],
-    cart: []
+    currentUser: null,
+    cart: [], 
+    isLoading: false,
+    formType: 'signup',
+    showForm: false
 }
 
 const userSlice = createSlice({
@@ -21,9 +25,25 @@ const userSlice = createSlice({
                 newCart.push({ ...action.payload, quantity: 1 });
             }
             state.cart = newCart
+        },
+        toggleForm: (state, action) => {
+            state.showForm = action.payload
         }
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(createUserThunk.pending, (state) =>{
+                state.isLoading = true
+            })
+            .addCase(createUserThunk.fulfilled, (state, action) =>{
+                state.currentUser = action.payload
+                state.isLoading = false
+            })
+            .addCase(createUserThunk.rejected, (state) =>{
+                state.isLoading = false
+            })
     }
 })
 
-export const {addItemToCart} = userSlice.actions
+export const {addItemToCart, toggleForm} = userSlice.actions
 export default userSlice.reducer
